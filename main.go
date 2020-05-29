@@ -12,7 +12,8 @@ import (
 func main() {
 	r := mux.NewRouter()
 
-	r.HandleFunc("/", handler.Home)
+	r.HandleFunc("/", handler.Home).Methods("GET")
+	r.HandleFunc("/", handler.Convert).Methods("POST")
 
 	srv := &http.Server{
 		Handler: r,
